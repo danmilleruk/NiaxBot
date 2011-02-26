@@ -1,0 +1,17 @@
+# Niaxbot Example Configuration
+# Example:
+
+# !a ([^ ]*)
+# actions.php?action=approve&user=\1
+
+# List Commands in PM
+===PM===
+
+# Public Commands inside channels
+===Public===
+
+# Actions (example /me)
+===ACTION===
+
+# Channels to join (eample:
+===Channels===
