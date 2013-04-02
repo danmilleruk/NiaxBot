@@ -86,7 +86,7 @@ class NiaxBot(SingleServerIRCBot):
 		# Split the refresh path such that we have the host and a target
 		rSplit = refresh.split('/')
 		self.refreshHost = rSplit[0]
-		self.refreshTarget = '/'.join(rSplit[1:])
+		self.refreshTarget = '/'.join(rSplit[1:]).strip() # Join stuff together
 		self.config = Config() # Init the config parser
 		self.floodProtect = {} # Dictionary for flood protect goes source->last time triggered
 		print "Target is on %s at %s" % (self.refreshHost, self.refreshTarget)
@@ -179,7 +179,7 @@ class NiaxBot(SingleServerIRCBot):
 			# We have a target, check if the source is under flood protection
 			if source in self.floodProtect:
 				timeDiff = timeRecv - self.floodProtect[source]
-				if timeDiff < 30: # Hardcoded 30 second anti-flood per channel - change here if required
+				if timeDiff < 0: # Hardcoded 30 second anti-flood per channel - change here if required
 					return
 			# Update the antiflood mapping
 			self.floodProtect[source] = timeRecv
